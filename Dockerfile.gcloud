@@ -1,0 +1,18 @@
+FROM python:2.7.16-alpine3.9
+
+ENV KUBECTL_VERSION="1.13.4"
+ENV KUBELESS_CLI_VERSION="1.0.3"
+ENV GCLOUD_SDK_VERSION="239.0.0"
+
+RUN apk add --update curl
+RUN curl -L "https://storage.googleapis.com/kubernetes-release/release/v${KUBECTL_VERSION}/bin/linux/amd64/kubectl" -o /usr/local/bin/kubectl
+RUN chmod +x /usr/local/bin/kubectl
+
+RUN curl -OL "https://github.com/kubeless/kubeless/releases/download/v${KUBELESS_CLI_VERSION}/kubeless_linux-amd64.zip"
+RUN unzip kubeless_linux-amd64.zip
+RUN mv bundles/kubeless_linux-amd64/kubeless /usr/local/bin
+
+RUN curl -OL "https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-${GCLOUD_SDK_VERSION}-linux-x86_64.tar.gz"
+RUN tar -xzf google-cloud-sdk-${GCLOUD_SDK_VERSION}-linux-x86_64.tar.gz
+RUN ./google-cloud-sdk/install.sh -q
+ENV PATH="/google-cloud-sdk/bin:${PATH}"
