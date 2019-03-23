@@ -11,4 +11,4 @@ jobs:
 
       - run:
           name: Docker Login
-          command: docker login -u _json_key -p ${GCLOUD_SERVICE_KEY} https://us.gcr.io
+          command: docker login -u _json_key -p "${GCLOUD_SERVICE_KEY}" https://us.gcr.io
