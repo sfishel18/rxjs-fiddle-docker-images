@@ -10,7 +10,7 @@ jobs:
           fingerprints:
             - "be:36:c9:3d:00:7e:38:2e:f9:90:10:99:3d:86:64:1c"
       - checkout
-      - run: apk add --no-cache --update curl
+      - run: apk add --no-cache --update curl curl-dev
       - run: curl -L https://github.com/screwdriver-cd/gitversion/releases/download/v1.1.2/gitversion_linux_amd64 -o /usr/local/bin/gitversion
       - run: chmod +x /usr/local/bin/gitversion
       - run: gitversion bump auto
