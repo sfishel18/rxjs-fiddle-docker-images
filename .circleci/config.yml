@@ -42,10 +42,10 @@ workflows:
   version: 2
   "Tag Commits to Master":
     jobs:
-      - "Bump Git Tag"
-        # filters:
-        #   branches:
-        #     only: master
+      - "Bump Git Tag":
+        filters:
+          branches:
+            only: master
   # "Build Images for PR Branches":
   #   jobs:
   #     - "Build All Images":
