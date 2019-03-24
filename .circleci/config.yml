@@ -1,5 +1,18 @@
 version: 2
 jobs:
+  git-tag:
+    docker:
+      - image: alpine/git:latest
+
+    steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "be:36:c9:3d:00:7e:38:2e:f9:90:10:99:3d:86:64:1c"
+      - checkout
+      - run:
+          name: Push Git Tag
+          command: git tag wedidit && git push origin --tags
+
   build:
     docker:
       - image: docker:latest
