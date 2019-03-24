@@ -45,15 +45,15 @@ workflows:
         filters:
           branches:
             only: master
-  "Build Images for PR Branches":
-    jobs:
-      - "Build All Images":
-        filters:
-          branches:
-            ignore: master
-  "Push Images for Tags":
-    jobs:
-      - "Build And Push All Images":
-        filters:
-          tags:
-            only: /.*/
+  # "Build Images for PR Branches":
+  #   jobs:
+  #     - "Build All Images":
+  #       filters:
+  #         branches:
+  #           ignore: master
+  # "Push Images for Tags":
+  #   jobs:
+  #     - "Build And Push All Images":
+  #       filters:
+  #         tags:
+  #           only: /.*/
