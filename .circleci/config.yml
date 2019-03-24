@@ -25,3 +25,10 @@ jobs:
       - run:
           name: Docker Login
           command: echo "${GCLOUD_SERVICE_KEY}" | docker login -u _json_key --password-stdin https://us.gcr.io
+
+workflows:
+  version: 2
+  build_and_gittag:
+    jobs:
+      - build
+      - git-tag
