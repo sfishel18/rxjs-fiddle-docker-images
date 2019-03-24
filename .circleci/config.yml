@@ -14,7 +14,7 @@ jobs:
       - run: curl -L https://github.com/screwdriver-cd/gitversion/releases/download/v1.1.2/gitversion_linux_amd64 -o /usr/local/bin/gitversion
       - run: chmod +x /usr/local/bin/gitversion
       - run: gitversion bump auto
-      - run: git push origin --tags
+      - run: git push -q origin --tags
 
   "Build All Images":
     docker:
