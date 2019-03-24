@@ -54,4 +54,5 @@ workflows:
   "Push Images for Tags":
     jobs:
       - Build And Push All Images
-    filters: tags
+    filters:
+      tags: /.*/
