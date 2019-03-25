@@ -24,7 +24,7 @@ jobs:
       - checkout
       - setup_remote_docker:
           docker_layer_caching: true
-      - run: docker build -t https://gcr.io/rxjs-fiddle/ci/gcloud -f Dockerfile.gcloud .
+      - run: docker build -t gcr.io/rxjs-fiddle/ci/gcloud -f Dockerfile.gcloud .
 
   Build And Push All Images:
     docker:
