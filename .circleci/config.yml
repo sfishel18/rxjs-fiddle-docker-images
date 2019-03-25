@@ -44,8 +44,8 @@ workflows:
     jobs:
       - Bump Git Tag:
         filters:
-          branches:
-            only: master
+          # branches:
+          #   only: master
   # "Build Images for PR Branches":
   #   jobs:
   #     - "Build All Images":
