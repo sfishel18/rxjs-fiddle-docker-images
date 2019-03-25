@@ -36,7 +36,7 @@ jobs:
           docker_layer_caching: true
       - run: echo "${GCLOUD_SERVICE_KEY}" | docker login -u _json_key --password-stdin https://gcr.io
       - run: docker build -t gcr.io/rxjs-fiddle/ci/gcloud:${CIRCLE_TAG} -f Dockerfile.gcloud .
-      - run: docker push gcr.io/rxjs-fiddle/ci/gcloud:latest:${CIRCLE_TAG}
+      - run: docker push gcr.io/rxjs-fiddle/ci/gcloud:${CIRCLE_TAG}
 
 workflows:
   version: 2
