@@ -1,7 +1,7 @@
 version: 2
 
 jobs:
-  Bump-Git-Tag:
+  Bump Git Tag:
     docker:
       - image: alpine/git:latest
 
@@ -42,10 +42,10 @@ workflows:
   version: 2
   Tag Commits to Master:
     jobs:
-      - Bump-Git-Tag:
+      - Bump Git Tag:
           filters:
-          # branches:
-          #   only: master
+            branches:
+              only: master
   # "Build Images for PR Branches":
   #   jobs:
   #     - "Build All Images":
