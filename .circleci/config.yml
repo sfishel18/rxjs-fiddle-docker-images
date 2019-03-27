@@ -1,4 +1,4 @@
-version: 2
+version: 2.1
 
 jobs:
   Bump Git Tag:
@@ -42,7 +42,7 @@ jobs:
           - run: docker push gcr.io/rxjs-fiddle/ci/gitversion:<< parameters.tag >>
 
 workflows:
-  version: 2
+  version: 2.1
 
   Tag Commits to Master:
     jobs:
