@@ -3,11 +3,10 @@ version: 2
 jobs:
   Bump Git Tag:
     docker:
-      docker:
-        - image: gcr.io/rxjs-fiddle/ci/gitversion:0.0.8
-          auth:
-            username: _json_key
-            password: ${GCLOUD_SERVICE_KEY}
+      - image: gcr.io/rxjs-fiddle/ci/gitversion:0.0.8
+        auth:
+          username: _json_key
+          password: ${GCLOUD_SERVICE_KEY}
 
     steps:
       - add_ssh_keys:
