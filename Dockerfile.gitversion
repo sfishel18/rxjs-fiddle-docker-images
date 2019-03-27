@@ -1,0 +1,5 @@
+FROM alpine/git:1.0.7
+
+RUN apk add --no-cache --update curl curl-dev
+RUN curl -L https://github.com/screwdriver-cd/gitversion/releases/download/v1.1.2/gitversion_linux_amd64 -o /usr/local/bin/gitversion
+RUN chmod +x /usr/local/bin/gitversion

@@ -25,6 +25,7 @@ jobs:
       - setup_remote_docker:
           docker_layer_caching: true
       - run: docker build -t gcr.io/rxjs-fiddle/ci/gcloud -f Dockerfile.gcloud .
+      - run: docker build -t gcr.io/rxjs-fiddle/ci/giversion -f Dockerfile.gitversion .
 
   Build And Push All Images:
     docker:
@@ -36,7 +37,9 @@ jobs:
           docker_layer_caching: true
       - run: echo "${GCLOUD_SERVICE_KEY}" | docker login -u _json_key --password-stdin https://gcr.io
       - run: docker build -t gcr.io/rxjs-fiddle/ci/gcloud:${CIRCLE_TAG} -f Dockerfile.gcloud .
+      - run: docker build -t gcr.io/rxjs-fiddle/ci/gitversion:${CIRCLE_TAG} -f Dockerfile.gitversion .
       - run: docker push gcr.io/rxjs-fiddle/ci/gcloud:${CIRCLE_TAG}
+      - run: docker push gcr.io/rxjs-fiddle/ci/gitversion:${CIRCLE_TAG}
 
 workflows:
   version: 2
